@@ -300,11 +300,11 @@ class AxCircuit:
     # . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
 
-    def get_pareto_front(self, x_name, y_name):
+    def get_pareto_front(self, x_name, y_name, maxX, maxY):
         csv_data = read_csv(self.results_filename, delimiter=";")
         x_data = csv_data[x_name].tolist()
         y_data = csv_data[y_name].tolist()
-        x_pareto, y_pareto, index = pareto_front(x_data, y_data)
+        x_pareto, y_pareto, index = pareto_front(x_data, y_data, maxX, maxY)
         pareto_elements = []
         pareto_circuits = []
         print(f"> Pareto front for {self.top_name}:")
