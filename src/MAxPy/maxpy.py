@@ -85,7 +85,7 @@ class AxCircuit:
     # . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
     # . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
 
-    def rtl2py(self, base="", target=""):
+    def rtl2py(self, base="", target="", run_tb = 0):
         if base == "":
             base = "rtl"
 
@@ -185,7 +185,9 @@ class AxCircuit:
         print("> End: " + get_time_stamp())
         print(">>> Circuit \"{t}\" converted successfully!".format(t=self.top_name))
         print("")
-
+        if run_tb:
+            self.run_testbench()
+        #TODO change location + add prints
         return ErrorCodes.OK
 
     # . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
