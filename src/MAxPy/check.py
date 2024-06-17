@@ -6,7 +6,7 @@ def check(axckt):
 
     #print('  > Runnin test script (should print module\'s name):')
 
-    module_test_string = "python -c \""
+    module_test_string = "python3 -c \""
     module_test_string += "from {m} import {n};".format(m=axckt.pymod_path, n=axckt.top_name)
     module_test_string += "print('  >', %s.%s().name())\"" % (axckt.top_name, axckt.top_name)
 
